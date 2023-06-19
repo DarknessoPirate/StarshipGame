@@ -1,0 +1,47 @@
+dla wszystkich konfiguracji !!!!!!!!!!!!!!!!!!!!
+
+C/C++ -> Additional include directiories -> C:\Biblioteki C++\SFML-2.5.1\include
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Linker -> General -> Additional Library Directories -> C:\Biblioteki C++\SFML-2.5.1\lib 
+
+Linker -> Input -> Additional Dependencies -> 
+tylko dla konfiguracji Release ( z tym nie powinno być żadnych problemów ale załączam to mimo to)
+Release:
+sfml-system.lib
+sfml-graphics.lib
+sfml-audio.lib
+sfml-network.lib
+sfml-window.lib
+tylko dla konfiguracji debug:
+Debug: 
+sfml-system-d.lib
+sfml-graphics-d.lib
+sfml-audio-d.lib
+sfml-network-d.lib
+sfml-window-d.lib
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Kompilacja plików -> Pliki projektu -> x64 -> Debug -> Kopia plików bin z SFML do folderu Debug projektu
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Kod testowy:
+#include <SFML/Graphics.hpp>
+
+int main() {
+	sf::RenderWindow window(sf::VideoMode(600, 600), "SFML Works");
+
+	while (window.isOpen())
+	{
+		window.clear(sf::Color::Black);
+		sf::RectangleShape rs(sf::Vector2f(100, 100));
+		window.draw(rs);
+		window.display();
+	}
+}
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
