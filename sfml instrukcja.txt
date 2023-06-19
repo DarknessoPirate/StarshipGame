@@ -1,10 +1,20 @@
-dla wszystkich konfiguracji !!!!!!!!!!!!!!!!!!!!
+# Instrukcja do użycia w razie problemów z linkowaniem
+# Wchodzimy w Project -> Properties w Visual Studio
+# Dwa ustawienia poniżej ustawiamy dla wszystkich konfiguracji 
+# Należy im wpisać odpowiednią ścieżkę do folderów znajdujących się już w projekcie
+# Foldery te mają pliki potrzebne do działania programu
+# Sprawdzaliśmy i wszystko powinno działać sprawnie lecz w razie jakich problemów proszę sugerować się poniższym:
 
-C/C++ -> Additional include directiories -> C:\Biblioteki C++\SFML-2.5.1\include
+C/C++ -> Additional include directiories -> include (ścieżka do folderu include znajdującego się w folderze projektu)
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Linker -> General -> Additional Library Directories -> C:\Biblioteki C++\SFML-2.5.1\lib 
+Linker -> General -> Additional Library Directories -> lib  (trzeba dać ścieżkę do znajdującego się w projekcie folderu lib) 
+
+
+
+## Z ustawieniami poniżej nie powinno byc żadnego problemu ( powinny byc już ustawione prawidłowo od początku odpalenia projektu, ale gdyby powyższe 2 opcje w razie problemu
+## nie pomogły to zostaje jedynie to co poniżej)
 
 Linker -> Input -> Additional Dependencies -> 
 tylko dla konfiguracji Release ( z tym nie powinno być żadnych problemów ale załączam to mimo to)
@@ -22,26 +32,4 @@ sfml-audio-d.lib
 sfml-network-d.lib
 sfml-window-d.lib
 
-
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-Kompilacja plików -> Pliki projektu -> x64 -> Debug -> Kopia plików bin z SFML do folderu Debug projektu
-
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-Kod testowy:
-#include <SFML/Graphics.hpp>
-
-int main() {
-	sf::RenderWindow window(sf::VideoMode(600, 600), "SFML Works");
-
-	while (window.isOpen())
-	{
-		window.clear(sf::Color::Black);
-		sf::RectangleShape rs(sf::Vector2f(100, 100));
-		window.draw(rs);
-		window.display();
-	}
-}
-
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
